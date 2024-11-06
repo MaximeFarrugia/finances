@@ -1,4 +1,5 @@
 .DS_Store
 backend/target
+.env
 frontend/node_modules
 frontend/build

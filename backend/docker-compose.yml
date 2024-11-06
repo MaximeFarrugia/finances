@@ -1,0 +1,15 @@
+version: "3"
+
+services:
+  db:
+    image: timescale/timescaledb-ha:pg15-latest
+    ports:
+      - "5432:5432"
+    env_file: .env
+    volumes:
+      - db-data:/home/postgres/pgdata/data
+      - ./postgresql/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+    restart: unless-stopped
+
+volumes:
+  db-data:
